@@ -1,0 +1,45 @@
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      label: master
+      name: application
+      discovery:
+        enabled: true
+        serviceId: server-config
+      profile: dev
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://register-cluster01:4999/eureka, http://register-cluster02:5000/eureka, http://register-cluster03:4998/eureka
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      label: master
+      name: application
+      discovery:
+        enabled: true
+        serviceId: server-config
+      profile: test
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://register-cluster01:4999/eureka, http://register-cluster02:5000/eureka, http://register-cluster03:4998/eureka
+---
+spring:
+  profiles: prod
+  cloud:
+    config:
+      label: master
+      name: application
+      discovery:
+        enabled: true
+        serviceId: server-config
+      profile: prod
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://register-cluster01:4999/eureka, http://register-cluster02:5000/eureka, http://register-cluster03:4998/eureka
